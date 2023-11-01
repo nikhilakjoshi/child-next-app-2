@@ -53,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 export default function TokenId() {
   const router = useRouter();
   useEffect(() => {
-    document.cookie = `browserCookie=${router.query.tokenId}; Path=/; Domain=vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`;
+    document.cookie = `browserCookie=test; Path=/; Domain=vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`;
   }, []);
   return (
     <>
