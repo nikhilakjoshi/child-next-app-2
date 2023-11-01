@@ -39,7 +39,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   }
   res.setHeader(
     "Set-Cookie",
-    `token=${tokenRec.value}; Path=/; Domain=.vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`,
+    `token=${tokenRec.value}; Path=/; Domain=vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`,
   );
   return {
     redirect: {
