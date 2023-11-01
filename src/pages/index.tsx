@@ -6,6 +6,7 @@ import type {
   InferGetServerSidePropsType,
 } from "next";
 import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 const font = Rubik({
   subsets: ["latin-ext"],
@@ -25,8 +26,14 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>,
 ) {
+  const [cookie, setCookie] = useCookies(["browserCookie"]);
   useEffect(() => {
-    document.cookie = `browserCookie=test; Path=/; Domain=vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`;
+    setCookie("browserCookie", "test", {
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    });
+    console.log({ cookie });
   }, []);
   return (
     <>
