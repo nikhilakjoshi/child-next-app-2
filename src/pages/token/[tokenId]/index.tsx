@@ -3,7 +3,6 @@ import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { Rubik } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { db } from "~/server/db";
 
 const font = Rubik({
@@ -52,9 +51,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
 export default function TokenId() {
   const router = useRouter();
-  useEffect(() => {
-    document.cookie = `browserCookie=test; Path=/; Domain=vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`;
-  }, []);
   return (
     <>
       <Head>

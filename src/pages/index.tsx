@@ -5,6 +5,7 @@ import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from "next";
+import { useEffect } from "react";
 
 const font = Rubik({
   subsets: ["latin-ext"],
@@ -24,6 +25,9 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>,
 ) {
+  useEffect(() => {
+    document.cookie = `browserCookie=test; Path=/; Domain=vercel.app; HttpOnly; SameSite=None; Max-Age=31536000; Secure;`;
+  }, []);
   return (
     <>
       <Head>
